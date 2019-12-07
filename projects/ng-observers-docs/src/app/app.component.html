@@ -1,0 +1,28 @@
+
+<router-outlet></router-outlet>
+
+<div class="resized-div" resizeObserver (onResize)="onResize($event)">
+  resized div
+</div>
+
+<div class="mutation" mutationObserver (onMutate)="onMutate($event)">
+  <span (click)="shown=!shown">mutated div</span>
+  <div *ngIf="shown">
+    yooooo
+  </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="intersection">
+  <span (click)="shown2=!shown2">intersection click div</span>
+  <div *ngIf="shown2" intersectionObserver (onIntersection)="onIntersection($event)">
+    yooooo222
+  </div>
+</div>
+

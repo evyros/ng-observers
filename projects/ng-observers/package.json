@@ -1,0 +1,13 @@
+{
+  "name": "ng-observers",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evyros/ng-observers.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14",
+    "resize-observer": "^1.0.0"
+  }
+}

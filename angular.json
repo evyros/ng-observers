@@ -2,5 +2,163 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ng-observers": {
+      "projectType": "library",
+      "root": "projects/ng-observers",
+      "sourceRoot": "projects/ng-observers/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-observers/tsconfig.lib.json",
+            "project": "projects/ng-observers/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-observers/src/test.ts",
+            "tsConfig": "projects/ng-observers/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-observers/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-observers/tsconfig.lib.json",
+              "projects/ng-observers/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ng-observers-docs": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ng-observers-docs",
+      "sourceRoot": "projects/ng-observers-docs/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ng-observers-docs",
+            "index": "projects/ng-observers-docs/src/index.html",
+            "main": "projects/ng-observers-docs/src/main.ts",
+            "polyfills": "projects/ng-observers-docs/src/polyfills.ts",
+            "tsConfig": "projects/ng-observers-docs/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/ng-observers-docs/src/favicon.ico",
+              "projects/ng-observers-docs/src/assets"
+            ],
+            "styles": [
+              "projects/ng-observers-docs/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ng-observers-docs/src/environments/environment.ts",
+                  "with": "projects/ng-observers-docs/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ng-observers-docs:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-observers-docs:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ng-observers-docs:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-observers-docs/src/test.ts",
+            "polyfills": "projects/ng-observers-docs/src/polyfills.ts",
+            "tsConfig": "projects/ng-observers-docs/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-observers-docs/karma.conf.js",
+            "assets": [
+              "projects/ng-observers-docs/src/favicon.ico",
+              "projects/ng-observers-docs/src/assets"
+            ],
+            "styles": [
+              "projects/ng-observers-docs/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-observers-docs/tsconfig.app.json",
+              "projects/ng-observers-docs/tsconfig.spec.json",
+              "projects/ng-observers-docs/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ng-observers-docs/e2e/protractor.conf.js",
+            "devServerTarget": "ng-observers-docs:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ng-observers-docs:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "ng-observers"
 }

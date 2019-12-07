@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-observers": [
+        "dist/ng-observers"
+      ],
+      "ng-observers/*": [
+        "dist/ng-observers/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
