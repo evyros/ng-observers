@@ -1,27 +1,83 @@
-# NgObservers
+# ng-observers
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+> Angular (6+) directives for native observers API for detecting element's size change, visibility and DOM manipulations.
+> 
+> Giving you `onResize()`, `onMutate()` and `onIntersection()` with using [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver), [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) and [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Getting started
 
-## Code scaffolding
+```bash
+npm i ng-observers
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+then import `NgObserversModule`:
 
-## Build
+```typescript
+import { NgObserversModule } from 'ng-observers';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+@NgModule({
+  declarations: [AppComponent],
+  imports: [NgObserversModule],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
 
-## Running unit tests
+## Usage Example
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Resize: 
+```html
+<div resizeObserver (onResize)="onResize($event)"></div>
+```
 
-## Running end-to-end tests
+### Intersection: 
+```html
+<div intersectionObserver (onIntersection)="onIntersection($event)"></div>
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Mutation:
+```html
+<div mutationObserver (onMutate)="onMutate($event)" [options]="options"></div>
+```
 
-## Further help
+```typescript
+class AppComponent {
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  onResize(event) {
+    // ...
+  }
+  
+  onIntersection(e) {
+    // ...
+  }
+
+  onMutate(e) {
+    // ...
+  }
+  
+}
+```
+
+#### Additional options:
+```html
+<div mutationObserver
+     [options]="{attributes: true, subtree: true}"
+     (onMutate)="onMutate($event)"></div>
+```
+`options` is optional, structured as [MutationObserverInit](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit):
+```json
+{
+    childList: false,
+    attributes: true,
+    subtree: false,
+    characterData: true
+}
+```
+
+---
+
+## License
+
+This project is licensed under an [MIT license](LICENSE.md).

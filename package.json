@@ -5,6 +5,13 @@
     "type": "git",
     "url": "https://github.com/evyros/ng-observers.git"
   },
+  "keywords": [
+    "angular observer",
+    "angular resize",
+    "angular mutate",
+    "angular intersection",
+    "angular observers"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -23,6 +30,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "ngx-highlightjs": "^4.0.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
