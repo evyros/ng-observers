@@ -2,7 +2,7 @@
 
 > Angular (6+) directives for native observers API for detecting element's size change, visibility and DOM manipulations.
 > 
-> Giving you `onResize()`, `onMutate()` and `onIntersection()` with using [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver), [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) and [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+> Giving you `onResize()`, `onMutate()` and `onIntersection()` using [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver), [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) and [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
 ---
 
@@ -39,7 +39,7 @@ export class AppModule {}
 
 ### Mutation:
 ```html
-<div mutationObserver (onMutate)="onMutate($event)" [options]="options"></div>
+<div mutationObserver (onMutate)="onMutate($event)"></div>
 ```
 
 ```typescript
@@ -67,8 +67,8 @@ class AppComponent {
      (onMutate)="onMutate($event)"></div>
 ```
 `options` is optional, structured as [MutationObserverInit](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit):
-```json
-{
+```javascript
+options = {
     childList: false,
     attributes: true,
     subtree: false,
