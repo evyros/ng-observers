@@ -49,11 +49,11 @@ class AppComponent {
     // ...
   }
   
-  onIntersection(e) {
+  onIntersection(event) {
     // ...
   }
 
-  onMutate(e) {
+  onMutate(event) {
     // ...
   }
   
