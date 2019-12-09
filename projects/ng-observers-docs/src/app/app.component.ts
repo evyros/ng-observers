@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import snippets from './snippets';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-observers-app';
+  resizeElement = {
+    width: 0,
+    height: 0
+  };
   shown = false;
   shown2 = false;
+  snippets = snippets;
 
   onResize(e) {
-    console.log('resize!', e);
+    this.resizeElement = {
+      width: e.contentRect.width,
+      height: e.contentRect.height
+    };
   }
 
   onMutate(e) {

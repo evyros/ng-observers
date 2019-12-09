@@ -1,7 +1,91 @@
-.resized-div {
-  background: silver;
+* {
+  box-sizing: border-box;
+}
+
+header {
+  h1 {
+    margin: 0;
+    color: #3F51B5;
+  }
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+main {
+  margin: 15px auto;
+}
+
+.row {
+  display: flex;
+
+  * {
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+.resizable-element-wrapper {
   width: 300px;
   height: 100px;
+
+  .resizable-element {
+    width: 200px;
+    min-width: 120px;
+    max-width: 300px;
+    height: 80px;
+    min-height: 35px;
+    max-height: 100px;
+    padding: 15px;
+    overflow: auto;
+    resize: both;
+    color: #2b3ab5;
+    background: #f1f1f1;
+    border: 2px dashed #3F51B5;
+
+    &:hover {
+      background: #eeeeee;
+    }
+  }
+}
+
+.mutation {
+  span {
+    color: #2b3ab5;
+  }
+}
+
+.intersection {
+  width: 300px;
+  height: 250px;
+  padding: 15px;
+  background: #f1f1f1;
+  border: 2px solid #3F51B5;
   overflow: auto;
-  resize: both;
+
+  .intersected {
+    margin-top: 400px;
+    margin-bottom: 400px;
+    background: #dddddd;
+    padding: 5px 0;
+  }
 }

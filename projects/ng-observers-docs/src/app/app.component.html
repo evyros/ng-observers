@@ -1,28 +1,57 @@
+<header class="container">
+  <h1>ng-observers</h1>
+</header>
 
-<router-outlet></router-outlet>
-
-<div class="resized-div" resizeObserver (onResize)="onResize($event)">
-  resized div
-</div>
-
-<div class="mutation" mutationObserver (onMutate)="onMutate($event)">
-  <span (click)="shown=!shown">mutated div</span>
-  <div *ngIf="shown">
-    yooooo
+<main class="container">
+  <h2>Examples</h2>
+  <div>
+    <h3>Resize Observer (<a href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver">MDN</a>)</h3>
+    <p>
+      The ResizeObserver interface reports changes to the dimensions of an element's content or border box.
+    </p>
+    <div class="row">
+      <div class="resizable-element-wrapper">
+        <div class="resizable-element" resizeObserver (onResize)="onResize($event)">
+          Resize me
+        </div>
+      </div>
+      <div>
+        <p>
+          Width: {{resizeElement.width}}px<br />
+          Height: {{resizeElement.height}}px<br />
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <pre><code [highlight]="snippets.resizeObserver"></code></pre>
+    </div>
   </div>
-</div>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<div class="intersection">
-  <span (click)="shown2=!shown2">intersection click div</span>
-  <div *ngIf="shown2" intersectionObserver (onIntersection)="onIntersection($event)">
-    yooooo222
+
+  <div>
+    <h3>Mutation Observer</h3>
+    <div class="mutation" mutationObserver (onMutate)="onMutate($event)">
+      <span (click)="shown=!shown">Click here</span> to mutate an element inside the container
+      <div *ngIf="shown">
+        Parent has been mutated
+      </div>
+    </div>
+    <div class="row">
+      <pre><code [highlight]="snippets.mutationObserver"></code></pre>
+    </div>
   </div>
-</div>
+
+  <div>
+    <h3>Intersection Observer</h3>
+    <div class="intersection">
+      Scroll down to intersect
+      <div intersectionObserver (onIntersection)="onIntersection($event)" class="intersected">
+        Intersected element
+      </div>
+      Scroll up to intersect
+    </div>
+    <div class="row">
+      <pre><code [highlight]="snippets.intersectionObserver"></code></pre>
+    </div>
+  </div>
+</main>
 

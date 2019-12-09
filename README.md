@@ -1,5 +1,8 @@
 # ng-observers
 
+[![npm version](https://badge.fury.io/js/ng-observers.svg)](https://badge.fury.io/js/ng-observers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 > Angular (6+) directives for native observers API for detecting element's size change, visibility and DOM manipulations.
 > 
 > Giving you `onResize()`, `onMutate()` and `onIntersection()` using [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver), [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) and [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
@@ -12,7 +15,7 @@
 npm i ng-observers
 ```
 
-then import `NgObserversModule`:
+Then import `NgObserversModule`:
 
 ```typescript
 import { NgObserversModule } from 'ng-observers';
@@ -60,7 +63,7 @@ class AppComponent {
 }
 ```
 
-#### Additional options:
+#### Additional options for mutationObserver:
 ```html
 <div mutationObserver
      [options]="{attributes: true, subtree: true}"
