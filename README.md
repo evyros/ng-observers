@@ -11,7 +11,7 @@
 
 ## Demonstration
 
-[DEMO](https://stackblitz.com/edit/angular-mzqya5)
+[Demo on Stackblitz](https://stackblitz.com/edit/angular-mzqya5)
 
 ## Getting started
 
