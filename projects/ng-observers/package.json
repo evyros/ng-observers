@@ -7,10 +7,6 @@
   },
   "peerDependencies": {
     "@angular/common": "^8.2.14",
-    "@angular/core": "^8.2.14",
-    "resize-observer": "^1.0.0"
-  },
-  "dependencies": {
-    "@angular/material": "^8.2.3"
+    "@angular/core": "^8.2.14"
   }
 }

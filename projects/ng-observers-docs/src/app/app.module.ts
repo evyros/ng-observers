@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgObserversModule } from '../../../ng-observers/src/lib/ng-observers.module';
+import { NgObserversModule } from 'ng-observers';
 import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
 
 export function getHighlightLanguages() {

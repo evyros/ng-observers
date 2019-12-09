@@ -5,6 +5,7 @@ import { Directive, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output }
 })
 export class MutationObserverDirective implements OnInit, OnDestroy {
 
+  // tslint:disable-next-line:no-output-on-prefix
   @Output()
   onMutate = new EventEmitter();
 

@@ -78,9 +78,3 @@ options = {
     characterData: true
 }
 ```
-
----
-
-## License
-
-This project is licensed under an [MIT license](LICENSE.md).

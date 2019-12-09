@@ -5,7 +5,9 @@
     "target": "es2015",
     "declaration": true,
     "inlineSources": true,
-    "types": [],
+    "types": [
+      "@types/resize-observer-browser"
+    ],
     "lib": [
       "dom",
       "es2018"

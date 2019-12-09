@@ -1,5 +1,4 @@
 import { Directive, ElementRef, EventEmitter, OnDestroy, Output } from '@angular/core';
-import { ResizeObserver } from 'resize-observer';
 
 /**
  * One observer for multiple elements
@@ -19,6 +18,7 @@ const ro = new ResizeObserver(entries => {
 })
 export class ResizeObserverDirective implements OnDestroy {
 
+  // tslint:disable-next-line:no-output-on-prefix
   @Output()
   onResize = new EventEmitter();
 

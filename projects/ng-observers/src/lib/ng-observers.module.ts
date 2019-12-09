@@ -3,18 +3,14 @@ import { ResizeObserverDirective } from './resize-observer.directive';
 import { MutationObserverDirective } from './mutation-observer.directive';
 import { IntersectionObserverDirective } from './intersection-observer.directive';
 
+const directives = [
+  ResizeObserverDirective,
+  MutationObserverDirective,
+  IntersectionObserverDirective
+];
+
 @NgModule({
-  declarations: [
-    ResizeObserverDirective,
-    MutationObserverDirective,
-    IntersectionObserverDirective
-  ],
-  imports: [
-  ],
-  exports: [
-    ResizeObserverDirective,
-    MutationObserverDirective,
-    IntersectionObserverDirective
-  ]
+  declarations: directives,
+  exports: directives
 })
 export class NgObserversModule { }
