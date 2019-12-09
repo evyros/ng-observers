@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import snippets from './snippets';
 
 @Component({
@@ -7,20 +7,22 @@ import snippets from './snippets';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-observers-app';
   resizeElement = {
     width: 0,
     height: 0
   };
   shown = false;
-  shown2 = false;
   snippets = snippets;
 
+  constructor(private ref: ChangeDetectorRef) { }
+
   onResize(e) {
+    console.log(e);
     this.resizeElement = {
       width: e.contentRect.width,
       height: e.contentRect.height
     };
+    this.ref.detectChanges();
   }
 
   onMutate(e) {
