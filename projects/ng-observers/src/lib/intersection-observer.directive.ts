@@ -4,7 +4,7 @@ import { Directive, ElementRef, EventEmitter, OnDestroy, Output } from '@angular
  * One observer for multiple elements
  */
 const entriesMap = new WeakMap();
-const ro = new IntersectionObserver(entries => {
+const ro: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
   for (const entry of entries) {
     if (entriesMap.has(entry.target)) {
       const comp = entriesMap.get(entry.target);
@@ -20,15 +20,15 @@ export class IntersectionObserverDirective implements OnDestroy {
 
   // tslint:disable-next-line:no-output-on-prefix
   @Output()
-  onIntersection = new EventEmitter();
+  onIntersection: EventEmitter<IntersectionObserverEntry> = new EventEmitter();
 
   constructor(private el: ElementRef) {
-    const target = el.nativeElement;
+    const target: Element = el.nativeElement;
     entriesMap.set(target, this);
     ro.observe(target);
   }
 
-  intersectionCallback(entry) {
+  intersectionCallback(entry: IntersectionObserverEntry) {
     this.onIntersection.emit(entry);
   }
 
@@ -37,7 +37,9 @@ export class IntersectionObserverDirective implements OnDestroy {
    */
   ngOnDestroy() {
     const target = this.el.nativeElement;
-    ro.unobserve(target);
-    entriesMap.delete(target);
+    if (target) {
+      ro.unobserve(target);
+      entriesMap.delete(target);
+    }
   }
 }
